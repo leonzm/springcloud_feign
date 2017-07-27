@@ -19,9 +19,9 @@ Spring Cloud Ribbon 时自行封装服务调用客户端的开发量。
 # 继承特性
 
 # Ribbon 配置
-* 全局配置，直接使用 ribbon.<key>=<value>的方式设置 ribbon 的各项默认参数
+* 全局配置，直接使用 ribbon.\<key\>=\<value\>的方式设置 ribbon 的各项默认参数
 > 如：ribbon.ConnectTimeout = 500，ribbon.ReadTimeout=5000
-* 指定服务配置，采用 <client>.ribbon.key=value 的格式进行设置，client 是使用 @FeignClient 注解中的 name 或 value 属性
+* 指定服务配置，采用 \<client\>.ribbon.key=value 的格式进行设置，client 是使用 @FeignClient 注解中的 name 或 value 属性
 > 如：HELLO-SERVICE.ribbon.ConnectTimeout=500，
 HELLO-SERVICE.ribbon.ReadTimeout=2000，
 HELLO-SERVICE.ribbon.OkToRetryOnAllOperations=true，
@@ -36,8 +36,8 @@ HELLO-SERVICE.ribbon.MaxAutoRetries=1 #每个实例最大重试次数
 另外，在对 Hystrix 进行
 配置之前，需要确认 feign.hystrix.enabled 参数没有被设置为 false，否则该参数设置会关闭 Feign 客户端的 Hystrix 支持。
 
-* 指定命令配置，采用 hystrix.command.<commandKey> 作为前缀进行配置
-> <commandKey>默认情况下会采用 Feign 客户端中的方法名作为标识，相同方法名的 Hystrix 配置共用。如：
+* 指定命令配置，采用 hystrix.command.\<commandKey\> 作为前缀进行配置
+> \<commandKey\>默认情况下会采用 Feign 客户端中的方法名作为标识，相同方法名的 Hystrix 配置共用。如：
 hystrix.command.hello.execution.isolation.thread.timeoutInMilliseconds=5000
 
 * 禁用 Hystrix
@@ -57,7 +57,7 @@ Hystrix 的配置类；2.在 XxxService 的 @FeignClient 注解中，通过 conf
 压缩的请求数据类型，该设置为默认值；feign.compression.request.min-request-size=2048 #设置请求压缩的大小下限，该设置为默认值
 * 日志配置
 > Spring Cloud Feign 在构建被 @FeignClient 注解修饰的服务客户端时，会为每个客户端都创建一个 feign.Logger 实例。
-> 可以在配置文件中使用 loggin.level.<FeignClient>的参数配置格式来开启指定 Feign 客户端的 DEBUG日志，其它<FeignClient>为 Feign 客户端
+> 可以在配置文件中使用 loggin.level.\<FeignClient\>的参数配置格式来开启指定 Feign 客户端的 DEBUG日志，其它<FeignClient>为 Feign 客户端
 定义接口的完整路径。还需要在应用主类中加入 Logger.Level 的 Bean 创建 或 通过配置类 才能实现对 DEBUG 日志，因为 Logger.Level 默认为 NONE
 级别。
 > Logger.Level 的级别有：NONE、BASIC、HEADERS、FULL
